@@ -1,6 +1,6 @@
-package com.content.bigO.linearcomplexity;
+package com.content.bigO.lineargrowth;
 
-public class ExampleLinearComplexity {
+public class LinearGrowthExample {
     public static void main(String[] args) {
         // Here is the variable that will define how many times the loop will iterate
         var n = 9;
