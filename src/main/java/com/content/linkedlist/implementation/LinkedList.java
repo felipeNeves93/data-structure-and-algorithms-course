@@ -103,4 +103,26 @@ public class LinkedList {
 
         length++;
     }
+
+    public Node removeFirst() {
+        if (length == 0) {
+            return null;
+        }
+
+        var temp = head;
+
+        if (length == 1) {
+            tail = null;
+            head = null;
+            length--;
+
+            System.out.println("Removing the node: " + temp.value);
+            return temp;
+        }
+
+        head = head.next;
+        length--;
+        System.out.println("Removing the node: " + temp.value);
+        return temp;
+    }
 }

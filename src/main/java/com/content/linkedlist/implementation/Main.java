@@ -6,6 +6,12 @@ public class Main {
 
         myLinkedList.printList();
         myLinkedList.prepend(25);
+        myLinkedList.prepend(45);
+        myLinkedList.printList();
+
+        myLinkedList.removeFirst();
+        myLinkedList.printList();
+        myLinkedList.removeFirst();
         myLinkedList.printList();
     }
 }
