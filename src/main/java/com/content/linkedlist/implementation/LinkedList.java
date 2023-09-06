@@ -6,22 +6,16 @@ public class LinkedList {
     private Node tail;
     private int length;
 
-    // Inner class representing the values of the list
-    class Node {
-        int value;
-        Node next;
-
-        Node(int value) {
-            this.value = value;
-        }
-    }
-
     // Initialize the list with just one element, that will be both the head and tail
     public LinkedList(int value) {
         var node = new Node(value);
         head = node;
         tail = node;
         length = 1;
+    }
+
+    public LinkedList() {
+
     }
 
     public void printList() {
@@ -34,16 +28,19 @@ public class LinkedList {
         System.out.println("------------------------------------------End of the list---------------------------");
     }
 
-    public void getHead() {
+    public Node getHead() {
         System.out.println("Head: " + head.value);
+        return head;
     }
 
-    public void getTail() {
+    public Node getTail() {
         System.out.println("Tail: " + tail.value);
+        return tail;
     }
 
-    public void getLength() {
+    public int getLength() {
         System.out.println("Length: " + length);
+        return length;
     }
 
     public void append(int value) {
