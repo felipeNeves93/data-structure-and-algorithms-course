@@ -62,24 +62,29 @@ public class LinkedList {
         length++;
     }
 
-    public void removeLast() {
-        if (length == 1) {
+    public Node removeLast() {
+        if (length == 0) {
+            return null;
+        }
+
+        Node previous = head;
+        Node current = head;
+
+        while (current.next != null) {
+            previous = current;
+            current = current.next;
+        }
+
+        tail = previous;
+        tail.next = null;
+
+        length--;
+
+        if (length == 0) {
             head = null;
             tail = null;
-        } else if (length > 1) {
-            var currentNode = head.next;
-            var previousNode = head;
-
-            // Find the last element of the list to remove, and update the references
-            while (currentNode != tail) {
-                previousNode = currentNode;
-                currentNode = currentNode.next;
-            }
-            System.out.println("Removing the last node: " + currentNode.value);
-            // Remove the last element and set the previous node as tail
-            previousNode.next = null;
-            tail = previousNode;
         }
-        length--;
+
+        return current;
     }
 }
