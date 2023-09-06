@@ -84,7 +84,7 @@ public class LinkedList {
             head = null;
             tail = null;
         }
-
+        System.out.println("Removing node: " + current.value);
         return current;
     }
 }
