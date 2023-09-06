@@ -31,6 +31,7 @@ public class LinkedList {
             System.out.println(temp.value);
             temp = temp.next;
         }
+        System.out.println("------------------------------------------End of the list---------------------------");
     }
 
     public void getHead() {
@@ -86,5 +87,20 @@ public class LinkedList {
         }
         System.out.println("Removing node: " + current.value);
         return current;
+    }
+
+    public void prepend(int value) {
+        var node = new Node(value);
+
+        if (length == 0) {
+            head = node;
+            tail = node;
+
+        } else {
+            node.next = head;
+            head = node;
+        }
+
+        length++;
     }
 }
