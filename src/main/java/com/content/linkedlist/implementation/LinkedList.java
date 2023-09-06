@@ -125,4 +125,22 @@ public class LinkedList {
         System.out.println("Removing the node: " + temp.value);
         return temp;
     }
+
+    public Node get(int index) {
+        if (index < 0 || index >= length) {
+            System.out.println("Invalid index!");
+            return null;
+        }
+
+        var counter = 0;
+        var currentNode = head;
+
+        while (counter < index) {
+            counter++;
+            currentNode = currentNode.next;
+        }
+
+        System.out.println("The value of the node at the index: " + index + " is: " + currentNode.value);
+        return currentNode;
+    }
 }
