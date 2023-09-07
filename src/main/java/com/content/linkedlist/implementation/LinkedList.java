@@ -186,4 +186,44 @@ public class LinkedList {
         currentNode.value = value;
         return true;
     }
+
+    /**
+     * Insert a new node at the specified index.
+     * If the index is 0, will use the 'prepend' method.
+     * If index == length, will use the 'append' method.
+     * If is at one of the remaining positions, will move the existing
+     * node and all the remaining nodes +1 position forward.
+     *
+     * @param index The index of the Node.
+     * @param value The value that is going to be inserted
+     * @return true if the operation is succesfull. False if an error occurs.
+     */
+    public boolean insert(int index, int value) {
+        if (index < 0 || index >= length) {
+            System.out.println("Invalid index!");
+            return false;
+        }
+
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+
+        if (index == length - 1) {
+            append(value);
+            return true;
+        }
+
+        var current = get(index);
+        var previous = get(index - 1);
+
+        var tempNode = current;
+
+        current = new Node(value);
+        current.next = tempNode;
+        previous.next = current;
+        length++;
+
+        return true;
+    }
 }
