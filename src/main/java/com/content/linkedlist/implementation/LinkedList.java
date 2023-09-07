@@ -43,23 +43,29 @@ public class LinkedList {
         return length;
     }
 
+    /**
+     * Will append a node to the end of the list.
+     *
+     * @param value The value to be added
+     */
     public void append(int value) {
         var newNode = new Node(value);
 
-        // If the list is empty, set both tail and node to point to the newNode
         if (length == 0) {
             head = newNode;
             tail = newNode;
-            // When the list is not empty, first with have to update the reference of the current node to point to the new one.
-            // Next, we have to update the pointer to point to the new Node
         } else {
             tail.next = newNode;
             tail = newNode;
         }
-
         length++;
     }
 
+    /**
+     * Will remove the last element of the list.
+     *
+     * @return The removed element.
+     */
     public Node removeLast() {
         if (length == 0) {
             return null;
@@ -86,6 +92,11 @@ public class LinkedList {
         return current;
     }
 
+    /**
+     * Will add a node with the given value to the begining of the list
+     *
+     * @param value The value that will be inserted.
+     */
     public void prepend(int value) {
         var node = new Node(value);
 
@@ -100,6 +111,11 @@ public class LinkedList {
         length++;
     }
 
+    /**
+     * Will remove the first node of the list.
+     *
+     * @return The removed node.
+     */
     public Node removeFirst() {
         if (length == 0) {
             return null;
@@ -122,6 +138,12 @@ public class LinkedList {
         return temp;
     }
 
+    /**
+     * Will search for a node at given index.
+     *
+     * @param index The position what will be searched
+     * @return The Node at given index
+     */
     public Node get(int index) {
         if (index < 0 || index >= length) {
             System.out.println("Invalid index!");
@@ -138,5 +160,30 @@ public class LinkedList {
 
         System.out.println("The value of the node at the index: " + index + " is: " + currentNode.value);
         return currentNode;
+    }
+
+    /**
+     * This method will set the value of the node placed on the specified index
+     *
+     * @param index The index of the node
+     * @param value The value that the node is going to assume at specified index
+     * @return true|false depending if the operation is completed or not.
+     */
+    public boolean set(int index, int value) {
+        if (index < 0 || index >= length) {
+            System.out.println("Invalid index!");
+            return false;
+        }
+
+        var counter = 0;
+        var currentNode = head;
+
+        while (counter < index) {
+            counter++;
+            currentNode = currentNode.next;
+        }
+
+        currentNode.value = value;
+        return true;
     }
 }
