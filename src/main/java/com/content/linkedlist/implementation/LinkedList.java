@@ -255,4 +255,24 @@ public class LinkedList {
         length--;
         return currentNode;
     }
+
+    /**
+     * Will reverse the linked list. The traversal arrow will point backwards
+     */
+    public void reverse() {
+        printList();
+        var temp = head;
+        head = tail;
+        tail = temp;
+        var next = temp.next;
+        Node previous = null;
+
+        for (int i = 0; i < length; i++) {
+            next = temp.next;
+            temp.next = previous;
+            previous = temp;
+            temp = next;
+        }
+        printList();
+    }
 }
