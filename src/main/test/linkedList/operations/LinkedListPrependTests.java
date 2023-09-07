@@ -1,4 +1,4 @@
-package linkedList;
+package linkedList.operations;
 
 import com.content.linkedlist.implementation.LinkedList;
 import org.junit.jupiter.api.Test;

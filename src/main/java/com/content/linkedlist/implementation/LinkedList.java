@@ -275,4 +275,19 @@ public class LinkedList {
         }
         printList();
     }
+
+    // EXERCISE METHODS WILL BE PLACED BELOW HERE
+    // ============================================================================================
+
+    // FIND MIDDLE NODE EXERCISE
+    public Node findMiddleNode() {
+        var slowPointer = head;
+        var fastPointer = head;
+
+        while (fastPointer != null && fastPointer.next != null) {
+            fastPointer = fastPointer.next.next;
+            slowPointer = slowPointer.next;
+        }
+        return slowPointer;
+    }
 }
