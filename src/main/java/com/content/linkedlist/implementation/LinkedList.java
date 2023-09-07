@@ -226,4 +226,33 @@ public class LinkedList {
 
         return true;
     }
+
+    /**
+     * Remove the node at the given index.
+     *
+     * @param index The index of the node
+     * @return The node to be removed
+     */
+    public Node remove(int index) {
+        if (index < 0 || index >= length) {
+            return null;
+        }
+
+        if (index == 0) {
+            return removeFirst();
+        }
+
+        if (index == length - 1) {
+            return removeLast();
+        }
+
+        var previousNode = get(index - 1);
+        var currentNode = get(index);
+
+        previousNode.next = currentNode.next;
+
+        System.out.println("Removing node: " + currentNode.value + " at index: " + index);
+        length--;
+        return currentNode;
+    }
 }
