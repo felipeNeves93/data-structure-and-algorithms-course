@@ -97,7 +97,6 @@ public class LinkedList {
             node.next = head;
             head = node;
         }
-
         length++;
     }
 
