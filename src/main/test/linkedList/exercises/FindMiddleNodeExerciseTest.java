@@ -1,6 +1,6 @@
 package linkedList.exercises;
 
-import com.content.linkedlist.implementation.LinkedList;
+import com.content.linkedlist.exercises.findmiddlenode.FindMiddleNodeSolution;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +9,7 @@ class FindMiddleNodeExerciseTest {
 
     @Test
     void whenGivenLinkedListWithSizeFiveReturnMiddleNodeThree() {
-        var linkedList = new LinkedList(1);
+        var linkedList = new FindMiddleNodeSolution(1);
         linkedList.append(2);
         linkedList.append(3);
         linkedList.append(4);
@@ -22,7 +22,7 @@ class FindMiddleNodeExerciseTest {
 
     @Test
     void whenGivenLinkedListWithSizeSixReturnMiddleNodeFour() {
-        var linkedList = new LinkedList(1);
+        var linkedList = new FindMiddleNodeSolution(1);
         linkedList.append(2);
         linkedList.append(3);
         linkedList.append(4);
