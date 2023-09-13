@@ -45,7 +45,10 @@ public class LinkedList {
 
     public void setHead(Node head) {
         this.head = head;
+    }
 
+    public void setLength(int length) {
+        this.length = length;
     }
 
     /**
