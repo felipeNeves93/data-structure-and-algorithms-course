@@ -43,6 +43,11 @@ public class LinkedList {
         return length;
     }
 
+    public void setHead(Node head) {
+        this.head = head;
+
+    }
+
     /**
      * Will append a node to the end of the list.
      *
