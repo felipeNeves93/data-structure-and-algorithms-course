@@ -60,7 +60,7 @@ public class DoublyLinkedList {
         }
 
         this.length++;
-        System.out.println("Added the node " + nodeToAppend.value + " to the begining of the list");
+        System.out.println("Added the node " + nodeToAppend.value + " to the list. New length: " + length);
         return nodeToAppend;
     }
 
@@ -71,5 +71,36 @@ public class DoublyLinkedList {
         this.head = null;
         this.tail = null;
         this.length = 0;
+    }
+
+    /**
+     * Remove the last node of the list.
+     *
+     * @return The removed node
+     */
+    public Node removeLast() {
+        if (length == 0) {
+            System.out.println("Empty List!");
+            return null;
+        }
+        var temp = tail;
+
+        if (length == 1) {
+            tail = null;
+            head = null;
+            length--;
+
+            System.out.println("Removing the node: " + temp.value + ". List length: " + length);
+            return temp;
+        }
+
+        var previous = tail.previous;
+
+        previous.next = null;
+        tail = previous;
+        length--;
+
+        System.out.println("Removing the node: " + temp.value + ". List length: " + length);
+        return temp;
     }
 }
