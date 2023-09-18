@@ -132,4 +132,25 @@ public class DoublyLinkedList {
         System.out.println("Adding " + value + " to the begining of the list. Length: " + length);
         return newNode;
     }
+
+    public Node removeFirst() {
+        if (length == 1) {
+            var temp = head;
+            length--;
+            head = null;
+            tail = null;
+
+            return temp;
+
+        } else if (length > 1) {
+            var temp = head;
+            length--;
+            head = head.next;
+            head.previous = null;
+
+            return temp;
+        }
+
+        return null;
+    }
 }
