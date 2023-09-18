@@ -71,6 +71,7 @@ public class DoublyLinkedList {
         this.head = null;
         this.tail = null;
         this.length = 0;
+        System.out.println("Emptying list.");
     }
 
     /**
@@ -102,5 +103,33 @@ public class DoublyLinkedList {
 
         System.out.println("Removing the node: " + temp.value + ". List length: " + length);
         return temp;
+    }
+
+    /**
+     * Add a node to the begining of the list.
+     *
+     * @param value The node to add.
+     * @return The added node.
+     */
+    public Node prepend(int value) {
+        var newNode = new Node(value);
+
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+            length++;
+
+            System.out.println("Adding " + value + " to the begining of the list. Length: " + length);
+            return newNode;
+        }
+
+        newNode.next = head;
+        head.previous = newNode;
+        newNode.previous = null;
+        head = newNode;
+        length++;
+
+        System.out.println("Adding " + value + " to the begining of the list. Length: " + length);
+        return newNode;
     }
 }
