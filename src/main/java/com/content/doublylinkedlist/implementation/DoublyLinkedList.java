@@ -64,6 +64,9 @@ public class DoublyLinkedList {
         return nodeToAppend;
     }
 
+    /**
+     * Make the list empty by setting head and tail to null and length to 0
+     */
     public void makeEmpty() {
         this.head = null;
         this.tail = null;
