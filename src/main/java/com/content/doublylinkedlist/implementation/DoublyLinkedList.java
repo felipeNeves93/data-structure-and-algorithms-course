@@ -181,4 +181,24 @@ public class DoublyLinkedList {
 
         return null;
     }
+
+    /**
+     * Updates the value of a node at given index
+     *
+     * @param index The index of the node.
+     * @param value The value to be updated
+     * @return true if the operation is executed. false if fails
+     */
+    public boolean set(int index, int value) {
+        if (index < 0 || index > length || length == 0) {
+            return false;
+        }
+
+        var temp = get(index);
+        System.out.println("Updating node at index: " + index + " with value: " + value);
+        temp.value = value;
+
+        return true;
+
+    }
 }
