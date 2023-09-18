@@ -133,6 +133,11 @@ public class DoublyLinkedList {
         return newNode;
     }
 
+    /**
+     * Will remove the first element of the index
+     *
+     * @return The removed element
+     */
     public Node removeFirst() {
         if (length == 1) {
             var temp = head;
@@ -149,6 +154,29 @@ public class DoublyLinkedList {
             head.previous = null;
 
             return temp;
+        }
+
+        return null;
+    }
+
+    /**
+     * Retrieve the node at given index.
+     *
+     * @param index The index of de node.
+     * @return The node.
+     */
+    public Node get(int index) {
+        if (length <= 0 || index >= length) {
+            return null;
+        }
+
+        var temp = head;
+        for (int i = 0; i < length; i++) {
+            if (i == index) {
+                System.out.println("Returning the value: " + temp.value + " at index: " + index);
+                return temp;
+            }
+            temp = temp.next;
         }
 
         return null;
