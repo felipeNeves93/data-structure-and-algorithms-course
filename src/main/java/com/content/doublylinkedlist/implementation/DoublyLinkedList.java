@@ -14,6 +14,7 @@ public class DoublyLinkedList {
         this.length++;
     }
 
+    // Getters and Setters
     public Node getHead() {
         return head;
     }
@@ -38,6 +39,14 @@ public class DoublyLinkedList {
         this.length = length;
     }
 
+    // Operations
+
+    /**
+     * Append a Node to the end of the list.
+     *
+     * @param value The value of the node.
+     * @return The added node
+     */
     public Node append(int value) {
         var nodeToAppend = new Node(value);
 
