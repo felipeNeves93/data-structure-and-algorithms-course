@@ -24,19 +24,19 @@ class DoublyLinkedListSetTests {
     }
 
     @Test
-    void whenSettingNodeAtInvalidIndexThenShouldReturnFalse() {
+    void whenInsertingNodeAtInvalidIndexThenShouldReturnFalse() {
         var doublyLinkedList = new DoublyLinkedList(1);
         doublyLinkedList.append(2);
         doublyLinkedList.append(3);
         doublyLinkedList.append(3);
 
-        var updateNode = doublyLinkedList.set(6, 6);
+        var updateNode = doublyLinkedList.insert(6, 6);
 
         assertFalse(updateNode);
     }
 
     @Test
-    void whenSettingNodeAtEmptyListThenShouldReturnFalse() {
+    void whenSettingNodeAtEmptyListThenShouldReturnTrue() {
         var doublyLinkedList = new DoublyLinkedList(1);
         doublyLinkedList.append(2);
         doublyLinkedList.append(3);
@@ -44,8 +44,30 @@ class DoublyLinkedListSetTests {
 
         doublyLinkedList.makeEmpty();
 
-        var updateNode = doublyLinkedList.set(6, 6);
+        final var expectedLength = 1;
+        final var expectedHead = 6;
 
-        assertFalse(updateNode);
+        var updateNode = doublyLinkedList.insert(0, 6);
+
+        assertTrue(updateNode);
+        assertEquals(expectedLength, doublyLinkedList.getLength());
+        assertEquals(expectedHead, doublyLinkedList.getHead().value);
+    }
+
+    @Test
+    void whenSettingNodeAtTheEndOfTheListThenShouldReturnTrue() {
+        var doublyLinkedList = new DoublyLinkedList(1);
+        doublyLinkedList.append(2);
+        doublyLinkedList.append(3);
+        doublyLinkedList.append(3);
+
+        final var expectedLength = 5;
+        final var expectedTail = 6;
+
+        var updateNode = doublyLinkedList.insert(3, 6);
+
+        assertTrue(updateNode);
+        assertEquals(expectedLength, doublyLinkedList.getLength());
+        assertEquals(expectedTail, doublyLinkedList.getTail().value);
     }
 }

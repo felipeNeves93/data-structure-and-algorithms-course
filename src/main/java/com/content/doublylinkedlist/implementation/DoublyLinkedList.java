@@ -199,6 +199,41 @@ public class DoublyLinkedList {
         temp.value = value;
 
         return true;
+    }
 
+    /**
+     * Insert a new node at given index.
+     *
+     * @param index The index to be inserted.
+     * @param value The value of the new node
+     * @return True if the operation is successful or false if not
+     */
+    public boolean insert(int index, int value) {
+        if (index == 0) {
+            prepend(value);
+            return true;
+        }
+        
+        if (index == length - 1) {
+            append(value);
+            return true;
+        }
+
+        if (index < 0 || index >= length) {
+            return false;
+        }
+
+        var current = get(index);
+        var previousNode = current.previous;
+
+        var newNode = new Node(value);
+
+        newNode.next = current;
+        newNode.previous = previousNode;
+        current.previous = newNode;
+        previousNode.next = newNode;
+        length++;
+
+        return true;
     }
 }
