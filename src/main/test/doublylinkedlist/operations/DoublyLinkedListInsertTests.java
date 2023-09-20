@@ -17,7 +17,7 @@ class DoublyLinkedListInsertTests {
         final var expectedValue = 85;
         final var expectedLength = 5;
         final var expectedPrevious = 1;
-        final var expectedNext = 3;
+        final var expectedNext = 2;
         final var expectedPreviousFromNext = 85;
 
         var insertNode = doublyLinkedList.insert(1, 85);
@@ -34,19 +34,19 @@ class DoublyLinkedListInsertTests {
     }
 
     @Test
-    void whenSettingNodeAtInvalidIndexThenShouldReturnFalse() {
+    void whenInsertingNodeAtInvalidIndexThenShouldReturnFalse() {
         var doublyLinkedList = new DoublyLinkedList(1);
         doublyLinkedList.append(2);
         doublyLinkedList.append(3);
         doublyLinkedList.append(3);
 
-        var updateNode = doublyLinkedList.set(6, 6);
+        var updateNode = doublyLinkedList.insert(6, 6);
 
         assertFalse(updateNode);
     }
 
     @Test
-    void whenSettingNodeAtEmptyListThenShouldReturnFalse() {
+    void whenInsertingNodeAtEmptyListThenShouldReturnFalse() {
         var doublyLinkedList = new DoublyLinkedList(1);
         doublyLinkedList.append(2);
         doublyLinkedList.append(3);
@@ -54,7 +54,7 @@ class DoublyLinkedListInsertTests {
 
         doublyLinkedList.makeEmpty();
 
-        var updateNode = doublyLinkedList.set(6, 6);
+        var updateNode = doublyLinkedList.insert(6, 6);
 
         assertFalse(updateNode);
     }

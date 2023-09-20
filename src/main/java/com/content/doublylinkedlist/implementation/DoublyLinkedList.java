@@ -213,7 +213,7 @@ public class DoublyLinkedList {
             prepend(value);
             return true;
         }
-        
+
         if (index == length - 1) {
             append(value);
             return true;
@@ -235,5 +235,35 @@ public class DoublyLinkedList {
         length++;
 
         return true;
+    }
+
+    /**
+     * Removes the node at the specific index.
+     *
+     * @param index The index of the node.
+     * @return The removed node
+     */
+    public Node remove(int index) {
+        if (index < 0 || length == 0 || index >= length) {
+            return null;
+        }
+
+        if (index == 0) {
+            return removeFirst();
+        }
+
+        if (index == length - 1) {
+            return removeLast();
+        }
+
+        var nodeToRemove = get(index);
+        var next = nodeToRemove.next;
+        var previous = get(index - 1);
+
+        previous.next = nodeToRemove.next;
+        next.previous = previous;
+
+        length--;
+        return nodeToRemove;
     }
 }
