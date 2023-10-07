@@ -62,6 +62,20 @@ public class Stack {
     }
 
     /**
-     * Empty the stack
+     * Removes the top node.
+     *
+     * @return The removed top node
      */
+    public Node pop() {
+        if (height == 0) {
+            return null;
+        }
+
+        var temp = top;
+        top = temp.next;
+
+        height--;
+
+        return temp;
+    }
 }
