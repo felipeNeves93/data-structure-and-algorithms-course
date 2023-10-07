@@ -27,6 +27,11 @@ public class Stack {
         height = 1;
     }
 
+    public Stack() {
+        top = null;
+        height = 0;
+    }
+
     /**
      * Print all the values of the stack
      */
@@ -35,8 +40,28 @@ public class Stack {
 
         while (temp != null) {
             System.out.println(temp.value);
-            temp = temp.next
+            temp = temp.next;
         }
     }
 
+    /**
+     * Adds an element to the begining of the stack
+     *
+     * @param value The value to be added
+     */
+    public void push(int value) {
+        var newNode = new Node(value);
+
+        if (height == 0) {
+            top = newNode;
+        } else {
+            newNode.next = top;
+            top = newNode;
+        }
+        height++;
+    }
+
+    /**
+     * Empty the stack
+     */
 }
